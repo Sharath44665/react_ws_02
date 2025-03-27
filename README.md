@@ -2,12 +2,12 @@
 
 1. pics
 2. books
+3. deep-dive-hooks
+4. comps
 
 **useEffect usecases:**
 
-![useEffect usecases](./img/useEffect_usecases.png)
-
-3. deep-dive-hooks
+![useEffect usecases](./img/useEffect_usecases.png) 
 
 **useCallback**
 

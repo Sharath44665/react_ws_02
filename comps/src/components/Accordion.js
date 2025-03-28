@@ -7,7 +7,7 @@ function Accordion({items}){
 
         return (
             <div key={idx}>
-                <div>{item.label}</div>
+                <div onClick={()=>setExpandedIdx(idx)}>{item.label}</div>
                 {isExpanded && <div>{item.content} </div> }
                 
             </div>

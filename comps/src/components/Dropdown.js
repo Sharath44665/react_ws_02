@@ -1,29 +1,47 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { FaAngleDown } from "react-icons/fa";
+import Panel from "./Panel";
 
-function Dropdown({options, value, onChange}){
-    const [isOpen, setIsOpen] = useState(false);
+function Dropdown({ options, value, onChange }) {
+    const [isOpen, setIsOpen] = useState(false); 
+    const divEl = useRef();
 
-    const handleClick = ()=>{
+    useEffect(() => {
+        const handler = (event) => {
+            if(!divEl.current) return;
+            if (!divEl.current.contains(event.target)){
+                setIsOpen(false)
+            }
+        }
+
+        document.addEventListener('click', handler, true)
+        return () => {
+            document.removeEventListener('click', handler)
+        }
+    }, [])
+
+
+    const handleClick = () => {
         setIsOpen(!isOpen)
     }
 
-    const handleOptionClick = (option)=>{
+    const handleOptionClick = (option) => {
         setIsOpen(false)
         // console.log(option)
         onChange(option) // user click option
     }
 
-    const renderedOptions = options.map((option, idx)=> {
-        return <div key={idx} onClick={ () => handleOptionClick(option)}>
+    const renderedOptions = options.map((option, idx) => {
+        return <div className="cursor-pointer hover:bg-sky-200 p-2 rounded-xl " key={idx} onClick={() => handleOptionClick(option)}>
             {option.label}
         </div>
     })
     return <>
-    <div>
-        <div onClick={handleClick}>{value? value.label : "Select... "}</div>
-        {isOpen && <div>{renderedOptions}</div> }
-    </div>
-    
+        <div ref={divEl} className="w-48 relative">
+            <Panel className="flex justify-between items-center cursor-pointer " onClick={handleClick}>{value ? value.label : "Select... "} <FaAngleDown /></Panel>
+            {isOpen && <Panel className="absolute top-full ">{renderedOptions} </Panel>}
+        </div>
+
     </>
 }
 

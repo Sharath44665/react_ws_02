@@ -8,13 +8,17 @@ function App() {
         setSelection(option)
     }
     const options = [
-        {label: 'red', value : 'red'},
-        {label: 'green', value : 'green'},
-        {label: 'blue', value : 'blue'},
-        {label: 'yellow', value : 'yellow'},
+        { label: 'red', value: 'red' },
+        { label: 'green', value: 'green' },
+        { label: 'blue', value: 'blue' },
+        { label: 'yellow', value: 'yellow' },
     ]
     return <>
-    <Dropdown options={options} value={selection} onChange={handleSelect} />
+
+        <div className="flex">
+            <Dropdown options={options} value={selection} onChange={handleSelect} /> 
+            <Dropdown options={options} value={selection} onChange={handleSelect} /> 
+        </div>
     </>
 }
 

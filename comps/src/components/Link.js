@@ -5,11 +5,12 @@ const Link = ({to, children}) => {
     const { navigate } = useContext(NavigationContext)
 
     const handleClick = (event) => {
+        if (event.metaKey || event.ctrlKey) return;
         event.preventDefault();
         navigate(to)
     }
     return <>
-    <a onClick={handleClick}>{children} </a>
+    <a href={to} onClick={handleClick}>{children} </a>
     </>
 }
 

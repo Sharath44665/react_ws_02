@@ -9,8 +9,25 @@ const TablePage = () => {
         {name: 'Lime', color: 'bg-green-500', score: 4},
         {name: 'Blueberry', color: 'bg-indigo-500', score: 2},
     ]
+
+    const config = [
+        { 
+            label: 'Name',
+            render: (fruit) => fruit.name,
+
+        },
+        { 
+            label: 'Color',
+            render: (fruit) => fruit.color,
+
+        },
+        { 
+            label: 'Score',
+            render: (fruit) => fruit.score,
+        },
+    ]
     return <>
-    <Table data={data} />
+    <Table data={data} config={config} />
     </>
 }
 

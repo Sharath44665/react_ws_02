@@ -4,9 +4,9 @@ const Table = ({ data, config }) => {
         return <th key={idx}>{item.label}</th>
 
     })
-    const renderedRows = data.map((fruit, idx) => {
+    const renderedRows = data.map((cellData, idx) => {
         const renderedCells = config.map((column, id) => {
-            return <td key={id} className="p-2" >{column.render(fruit)}</td>
+            return <td key={id} className="p-2" >{column.render(cellData)}</td>
         })
         return (
 

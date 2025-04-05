@@ -1,8 +1,9 @@
+import { Fragment } from "react";
 const Table = ({ data, config }) => {
 
     const renderedHeaders = config.map((item, idx) => {
         if (item.header){
-            return item.header();
+            return <Fragment key={item.label}>{item.header()}</Fragment> 
         }
         return <th key={idx}>{item.label}</th>
 

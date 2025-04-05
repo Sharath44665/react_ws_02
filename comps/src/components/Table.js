@@ -1,6 +1,9 @@
 const Table = ({ data, config }) => {
 
     const renderedHeaders = config.map((item, idx) => {
+        if (item.header){
+            return item.header();
+        }
         return <th key={idx}>{item.label}</th>
 
     })

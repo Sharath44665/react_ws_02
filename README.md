@@ -71,5 +71,9 @@ integer:
 
 ![exp4](./img/reducerExp4.png)
 
+![exp5](./img/reducerExp5.png) 
+
+
+
 
 

@@ -3,7 +3,10 @@ import Button from '../components/Button'
 import Panel from '../components/Panel'
 
 const reducer = (state, action) => {
-
+    return {
+        ... state,
+        count: state.count+1
+    }
 }
 
 const CounterPage = ({ initialCount }) => { 
@@ -16,7 +19,7 @@ const CounterPage = ({ initialCount }) => {
     });
 
     const increment = () => {
-        // setCount(count + 1)
+        dispatch()
     }
 
     const decrement = () => {

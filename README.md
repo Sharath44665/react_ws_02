@@ -65,5 +65,11 @@ integer:
 
 ![user reducer exp](./img/useReducerExp.png)
 
+![exp2](./img/reducerExp2.png)
+
+![exp3](./img/reducerExp3.png)
+
+![exp4](./img/reducerExp4.png)
+
 
 

@@ -61,4 +61,9 @@ integer:
 ![object integer](./img/obj_comparision_integer.png)
 
 
+**useReducer Demo exp:**
+
+![user reducer exp](./img/useReducerExp.png)
+
+
 

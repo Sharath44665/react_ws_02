@@ -73,6 +73,10 @@ integer:
 
 ![exp5](./img/reducerExp5.png) 
 
+**reducer vs immer:**
+
+![reducer vs immer](./img/reducer_vs_immer.png)
+
 
 
 

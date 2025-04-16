@@ -26,7 +26,7 @@ const carsSlice = createSlice({
             const updated = state.data.filter((car) => {
                 return car.id !== action.payload
             });
-            state.data === updated
+            state.data = updated
         },
 
     }

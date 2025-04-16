@@ -5,7 +5,7 @@ const carsSlice = createSlice({
     name: 'cars',
     initialState: {
         searchTearm: '',
-        cars: []
+        data: []
     },
     reducers: {
         changeSearchTearm: (state, action) => {
@@ -13,20 +13,20 @@ const carsSlice = createSlice({
         },
         addCar: (state, action) => {
             // action.payload === {name: 'some name', cost: 333}
-            state.cars.push({
+            state.data.push({
                 name: action.payload.name,
                 cost: action.payload.cost,
-                id: nanoid, // auto generated random id from redux
+                id: nanoid(), // auto generated random id from redux
             })
 
         },
         removeCar: (state, action) => {
             // action.payload === remove the car with id
 
-            const updated = state.cars.filter((car) => {
+            const updated = state.data.filter((car) => {
                 return car.id !== action.payload
             });
-            state.cars === updated
+            state.data === updated
         },
 
     }

@@ -4,12 +4,12 @@ import { createSlice, nanoid } from "@reduxjs/toolkit";
 const carsSlice = createSlice({
     name: 'cars',
     initialState: {
-        searchTearm: '',
+        searchTerm: '',
         data: []
     },
     reducers: {
-        changeSearchTearm: (state, action) => {
-            state.searchTearm = action.payload
+        changeSearchTerm: (state, action) => {
+            state.searchTerm = action.payload
         },
         addCar: (state, action) => {
             // action.payload === {name: 'some name', cost: 333}
@@ -33,5 +33,5 @@ const carsSlice = createSlice({
 
 })
 
-export const {changeSearchTearm, addCar, removeCar } = carsSlice.actions;
+export const {changeSearchTerm, addCar, removeCar } = carsSlice.actions;
 export const carsrReducer = carsSlice.reducer;

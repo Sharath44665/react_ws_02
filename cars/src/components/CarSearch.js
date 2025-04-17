@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import {changeSearchTearm} from '../store';
+import {changeSearchTerm} from '../store';
 
 const CarSearch = () => {
     const dispatch = useDispatch()
@@ -9,7 +9,7 @@ const CarSearch = () => {
     })
 
     const handleSearchTermChange = (event) => {
-        dispatch(changeSearchTearm(event.target.value))
+        dispatch(changeSearchTerm(event.target.value))
     }
 
     return <div className="list-header">

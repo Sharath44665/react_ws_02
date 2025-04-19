@@ -1,25 +1,26 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers} from '../store'
+import { fetchUsers, addUser } from '../store'
+import Button from './Button'
 import Skeleton from "./Skeleton";
 
 const UserList = () => {
     const dispatch = useDispatch();
 
-    const {isLoading, data, error} = useSelector((state) => {
+    const { isLoading, data, error } = useSelector((state) => {
         return state.users;
     })
 
-    useEffect (() => {
+    useEffect(() => {
         dispatch(fetchUsers())
     }, [dispatch])
 
 
-    if ( isLoading ){
+    if (isLoading) {
         return <Skeleton times={6} className='h-10 w-full' />
     }
 
-    if (error){
+    if (error) {
         return <div>Error: something went wrong</div>
     }
 
@@ -32,8 +33,18 @@ const UserList = () => {
 
         </div>
     })
+
+    const handleUserAdd = (event) => {
+        dispatch(addUser())
+    }
     return (<>
-    {renderedUsers}
+        <div>
+            <div className="flex flex-row justify-between m-3">
+                <h1 className="m-2 text-xl ">Users</h1>
+                <Button onClick={handleUserAdd}> + add user</Button>
+            </div>
+            {renderedUsers}
+        </div>
     </>)
 }
 

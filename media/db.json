@@ -1,10 +1,18 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "name": "Sharathchandra"
-        }
-    ],
-    "albums": [],
-    "photos": []
+  "users": [
+    {
+      "id": "1",
+      "name": "Sharathchandra"
+    },
+    {
+      "id": "d044",
+      "name": "Mr. Clyde Kub"
+    },
+    {
+      "id": "46b4",
+      "name": "Hattie Haag"
+    }
+  ],
+  "albums": [],
+  "photos": []
 }

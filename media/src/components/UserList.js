@@ -7,6 +7,8 @@ import Skeleton from "./Skeleton";
 const UserList = () => {
     const [isLoadingUsers, setIsLoadingUsers] = useState(false)
     const [loadingUsersErrors, setLoadingUsersErrors] = useState(null)
+    const [isCreatingUser, setIsCreatingUser ] = useState(false)
+    const [creatingUserError, setCreatingUserError] = useState(null)
     const dispatch = useDispatch();
 
     const { data } = useSelector((state) => {
@@ -48,13 +50,20 @@ const UserList = () => {
     })
 
     const handleUserAdd = (event) => {
-        dispatch(addUser())
+        dispatch(addUser()).unwrap()
+            .catch(err => setCreatingUserError(err ))
+            .finally(()=> setIsCreatingUser(false))
     }
     return (<>
         <div>
             <div className="flex flex-row justify-between m-3">
                 <h1 className="m-2 text-xl ">Users</h1>
-                <Button onClick={handleUserAdd}> + add user</Button>
+                {
+                    isCreatingUser? 'creatingUser' :  <Button onClick={handleUserAdd}> + add user</Button>
+                }
+                {
+                    creatingUserError && 'error creating user'
+                }
             </div>
             {renderedUsers}
         </div>

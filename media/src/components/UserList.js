@@ -16,11 +16,15 @@ const UserList = () => {
     useEffect(() => {
         setIsLoadingUsers(true)
         dispatch(fetchUsers()).unwrap()
-            .then(() => {
-                console.log('success...!')
+            // .then(() => {
+            //     setIsLoadingUsers(false);
+            // })
+            .catch((err)=>{
+                setLoadingUsersErrors(err)
+                setIsLoadingUsers(false);
             })
-            .catch(()=>{
-                console.log('fail...!')
+            .finally(()=>{
+                setIsLoadingUsers(false);
             })
     }, [dispatch])
 

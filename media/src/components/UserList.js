@@ -1,34 +1,28 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers, addUser } from '../store'
 import Button from './Button'
 import Skeleton from "./Skeleton";
+import {useThunk} from "../hooks/use-thunk";
+
 
 const UserList = () => {
-    const [isLoadingUsers, setIsLoadingUsers] = useState(false)
-    const [loadingUsersErrors, setLoadingUsersErrors] = useState(null)
-    const [isCreatingUser, setIsCreatingUser ] = useState(false)
-    const [creatingUserError, setCreatingUserError] = useState(null)
-    const dispatch = useDispatch();
+    // const [isLoadingUsers, setIsLoadingUsers] = useState(false)
+    // const [loadingUsersErrors, setLoadingUsersErrors] = useState(null)
+    // const [isCreatingUser, setIsCreatingUser] = useState(false)
+    // const [creatingUserError, setCreatingUserError] = useState(null)
+
+    const [doFetchUsers, isLoadingUsers, loadingUsersErrors] = useThunk(fetchUsers)
+    const [doCreateUser, isCreatingUser, creatingUserError] = useThunk(addUser)
+    // const dispatch = useDispatch();
 
     const { data } = useSelector((state) => {
         return state.users;
     })
 
-    useEffect(() => {
-        setIsLoadingUsers(true)
-        dispatch(fetchUsers()).unwrap()
-            // .then(() => {
-            //     setIsLoadingUsers(false);
-            // })
-            .catch((err)=>{
-                setLoadingUsersErrors(err)
-                setIsLoadingUsers(false);
-            })
-            .finally(()=>{
-                setIsLoadingUsers(false);
-            })
-    }, [dispatch])
+    useEffect(() => { 
+        doFetchUsers()
+    }, [doFetchUsers])
 
 
     if (isLoadingUsers) {
@@ -50,16 +44,18 @@ const UserList = () => {
     })
 
     const handleUserAdd = (event) => {
-        dispatch(addUser()).unwrap()
-            .catch(err => setCreatingUserError(err ))
-            .finally(()=> setIsCreatingUser(false))
+        // dispatch(addUser()).unwrap()
+        //     .catch(err => setCreatingUserError(err))
+        //     .finally(() => setIsCreatingUser(false))
+
+        doCreateUser()
     }
     return (<>
         <div>
             <div className="flex flex-row justify-between m-3">
                 <h1 className="m-2 text-xl ">Users</h1>
                 {
-                    isCreatingUser? 'creatingUser' :  <Button onClick={handleUserAdd}> + add user</Button>
+                    isCreatingUser ? 'creatingUser' : <Button onClick={handleUserAdd}> + add user</Button>
                 }
                 {
                     creatingUserError && 'error creating user'

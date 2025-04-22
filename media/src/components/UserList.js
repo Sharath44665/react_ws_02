@@ -1,9 +1,10 @@
-import { useCallback, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { fetchUsers, addUser } from '../store'
 import Button from './Button'
 import Skeleton from "./Skeleton";
-import {useThunk} from "../hooks/use-thunk";
+import { useThunk } from "../hooks/use-thunk";
+import UserListItem from "./UserListItem";
 
 
 const UserList = () => {
@@ -20,28 +21,9 @@ const UserList = () => {
         return state.users;
     })
 
-    useEffect(() => { 
+    useEffect(() => {
         doFetchUsers()
     }, [doFetchUsers])
-
-
-    if (isLoadingUsers) {
-        return <Skeleton times={6} className='h-10 w-full' />
-    }
-
-    if (loadingUsersErrors) {
-        return <div>Error: something went wrong</div>
-    }
-
-
-    const renderedUsers = data.map((user, idx) => {
-        return <div key={idx} className="mb-2 border rounded-2xl">
-            <div className="flex p-2 justify-between items-center cursor-pointer">
-                {user.name}
-            </div>
-
-        </div>
-    })
 
     const handleUserAdd = (event) => {
         // dispatch(addUser()).unwrap()
@@ -50,16 +32,39 @@ const UserList = () => {
 
         doCreateUser()
     }
+
+    let content;
+    if (isLoadingUsers) {
+        content = <Skeleton times={6} className='h-10 w-full' />
+    }
+
+    else if (loadingUsersErrors) {
+        content = <div>Error: something went wrong</div>
+    }
+    else {
+        content = data.map((user, idx) => {
+            return <UserListItem key={idx} user={user} />
+            // return <div key={idx} className="mb-2 border rounded-2xl">
+            //     <div className="flex p-2 justify-between items-center cursor-pointer">
+            //         {user.name}
+            //     </div>
+            // </div>
+        })
+    }
+
+
+
+
     return (<>
         <div>
-            <div className="flex flex-row justify-between m-3">
+            <div className="flex flex-row justify-between items-center m-3">
                 <h1 className="m-2 text-xl ">Users</h1>
-                <Button loading={isCreatingUser} onClick={handleUserAdd}> + add user</Button> 
+                <Button loading={isCreatingUser} onClick={handleUserAdd}> + add user</Button>
                 {
                     creatingUserError && 'error creating user'
                 }
             </div>
-            {renderedUsers}
+            {content}
         </div>
     </>)
 }

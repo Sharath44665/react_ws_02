@@ -44,11 +44,7 @@ const UserList = () => {
     else {
         content = data.map((user, idx) => {
             return <UserListItem key={idx} user={user} />
-            // return <div key={idx} className="mb-2 border rounded-2xl">
-            //     <div className="flex p-2 justify-between items-center cursor-pointer">
-            //         {user.name}
-            //     </div>
-            // </div>
+            
         })
     }
 

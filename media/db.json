@@ -29,6 +29,12 @@
       "name": "Mrs. Lillie Zemlak"
     }
   ],
-  "albums": [],
+  "albums": [
+    {
+      "id": "1",
+      "title": "hiking trip",
+      "userId": 1
+    }
+  ],
   "photos": []
 }

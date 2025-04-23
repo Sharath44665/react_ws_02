@@ -5,6 +5,7 @@
 3. deep-dive-hooks
 4. comps
 5. redux store  👉 [click here for demo](https://codesandbox.io/p/sandbox/rtk-forked-k6d6rt?file=%2Fsrc%2Fstore%2Findex.js%3A31%2C38)
+6. media
 
 **useEffect usecases:**
 
@@ -14,7 +15,8 @@
 
 ![usecallback](./img/useCallback.png)
 
-**js demo**
+**js demo:**
+
 ![js demo](./img/jsDemoConsole.png)
 
 **useRef:**

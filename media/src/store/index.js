@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import {usersReducer} from './slices/userSlice';
+import { usersReducer } from './slices/userSlice';
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { albumsApi } from "./apis/albumsApi";
 
@@ -9,7 +9,7 @@ export const store = configureStore({
         users: usersReducer,
         [albumsApi.reducerPath]: albumsApi.reducer,
     },
-    middleware: ( getDefaultMiddleware ) => {
+    middleware: (getDefaultMiddleware) => {
         return getDefaultMiddleware().concat(albumsApi.middleware)
     }
 })
@@ -19,4 +19,4 @@ setupListeners(store.dispatch)
 export * from './thunks/fetchUsers'
 export * from './thunks/addUser'
 export * from './thunks/removeUser'
-export { useFetchAlbumsQuery} from './apis/albumsApi'
+export { useFetchAlbumsQuery, useAddAlbumMutation } from './apis/albumsApi'

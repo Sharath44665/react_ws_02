@@ -5,18 +5,6 @@
       "name": "Sharathchandra"
     },
     {
-      "id": "5d07",
-      "name": "Tracy Howe"
-    },
-    {
-      "id": "9415",
-      "name": "Jody Grady"
-    },
-    {
-      "id": "ca30",
-      "name": "Priscilla Homenick"
-    },
-    {
       "id": "fa43",
       "name": "Cecilia Ratke"
     },
@@ -34,16 +22,6 @@
       "id": "1",
       "title": "hiking trip",
       "userId": 1
-    },
-    {
-      "id": "6101",
-      "userId": "1",
-      "title": "Oriental Steel Pants"
-    },
-    {
-      "id": "26a6",
-      "userId": "1",
-      "title": "Fresh Granite Fish"
     }
   ],
   "photos": []

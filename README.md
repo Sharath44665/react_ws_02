@@ -80,7 +80,11 @@ integer:
 
 ![reducer vs immer](./img/reducer_vs_immer.png)
 
+**Showing some internal content in redux toolkit**
 
+![store info 1](./img/storeInfo.png)
+
+![store info 2](./img/storeInfo2.png)
 
 
 

@@ -19,19 +19,9 @@
   ],
   "albums": [
     {
-      "id": "1",
-      "title": "hiking trip",
-      "userId": 1
-    },
-    {
       "id": "001c",
       "userId": "1",
       "title": "Fresh Gold Computer"
-    },
-    {
-      "id": "2db9",
-      "userId": "1",
-      "title": "Elegant Cotton Mouse"
     }
   ],
   "photos": []

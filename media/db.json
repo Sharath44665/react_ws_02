@@ -19,9 +19,14 @@
   ],
   "albums": [
     {
-      "id": "001c",
+      "id": "1476",
       "userId": "1",
-      "title": "Fresh Gold Computer"
+      "title": "Elegant Steel Chips"
+    },
+    {
+      "id": "26d7",
+      "userId": "1",
+      "title": "Luxurious Gold Ball"
     }
   ],
   "photos": []

@@ -27,7 +27,33 @@
       "id": "26d7",
       "userId": "1",
       "title": "Luxurious Gold Ball"
+    },
+    {
+      "id": "b0a4",
+      "userId": "fa43",
+      "title": "Practical Granite Towels"
+    },
+    {
+      "id": "2cc3",
+      "userId": "fa43",
+      "title": "Fantastic Gold Shirt"
     }
   ],
-  "photos": []
+  "photos": [
+    {
+      "id": "dbc5",
+      "albumId": "1476",
+      "url": "https://picsum.photos/seed/9jjb6xUTUo/150/150"
+    },
+    {
+      "id": "bc5b",
+      "albumId": "1476",
+      "url": "https://loremflickr.com/150/150?lock=1788622531627624"
+    },
+    {
+      "id": "28f0",
+      "albumId": "2cc3",
+      "url": "https://picsum.photos/seed/CUfHfXlL/150/150"
+    }
+  ]
 }

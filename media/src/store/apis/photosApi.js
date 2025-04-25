@@ -6,10 +6,20 @@ const photosApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: 'http://localhost:3005'
     }),
-    endpoints: (builder) =>{
+    endpoints: (builder) => {
         return {
             fetchPhotos: builder.query({
-                query: (album)=>{
+                providesTags: (result, error, album) => {
+                    const tags = result.map((photo, idx) => {
+                        return {
+                            type: 'Photo',
+                            id: photo.id
+                        }
+                    })
+                    tags.push({ type: 'AlbumPhoto', id: album.id })
+                    return tags
+                },
+                query: (album) => {
                     return {
                         url: '/photos',
                         params: {
@@ -20,18 +30,24 @@ const photosApi = createApi({
                 }
             }),
             addPhoto: builder.mutation({
-                query: (album) =>{
+                invalidatesTags: (result, error, album) => {
+                    return [{ type: 'AlbumPhoto', id: album.id }]
+                },
+                query: (album) => {
                     return {
                         method: 'POST',
                         url: '/photos',
                         body: {
                             albumId: album.id,
-                            url: faker.image.url({width:150, height:150})
+                            url: faker.image.url({ width: 150, height: 150 })
                         }
                     }
                 }
             }),
             removePhoto: builder.mutation({
+                invalidatesTags: (result, error, photo) => {
+                    return [{ type: 'Photo', id: photo.id }]
+                },
                 query: (photo) => {
                     return {
                         method: 'DELETE',
@@ -44,5 +60,5 @@ const photosApi = createApi({
 })
 
 
-export const { useFetchPhotosQuery, useAddPhotoMutation, useRemovePhotoMutation} = photosApi;
-export {photosApi}
+export const { useFetchPhotosQuery, useAddPhotoMutation, useRemovePhotoMutation } = photosApi;
+export { photosApi }

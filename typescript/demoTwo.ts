@@ -30,4 +30,4 @@ console.log(mustang)
 mustang.setName('demo new model name')
 mustang.setYear(2022)
 
-console.log(mustang.getDescription())
+console.log(mustang.getDescription()) // your new car is demo new model name and year is: 2022

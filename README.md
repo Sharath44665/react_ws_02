@@ -7,6 +7,8 @@
 5. redux store  👉 [click here for demo](https://codesandbox.io/p/sandbox/rtk-forked-k6d6rt?file=%2Fsrc%2Fstore%2Findex.js%3A31%2C38)
 6. media
 7. typescript
+8. ts-demo
+9. location-search
 
 **useEffect usecases:**
 

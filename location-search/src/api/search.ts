@@ -13,7 +13,7 @@ interface searchResponse {
 }
 
 const search = async (term: string) => {
-    const res = await fetch(`https://nominatim.openstreetmap.org/search?q=${term}&format=geojson&addressdetails=1&limit=1`)
+    const res = await fetch(`https://nominatim.openstreetmap.org/search?q=${term}&format=geojson&addressdetails=1&limit=5`)
     const data: searchResponse = await res.json()
 
     // console.log(data)

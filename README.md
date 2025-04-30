@@ -9,6 +9,7 @@
 7. typescript
 8. ts-demo
 9. location-search
+10. registry
 
 **useEffect usecases:**
 

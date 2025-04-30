@@ -5,7 +5,6 @@ const Root = () => {
     return <>
     <Header />
     <Outlet />
-    body of header
     </>
 }
 

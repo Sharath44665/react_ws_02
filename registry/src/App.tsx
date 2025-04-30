@@ -22,7 +22,7 @@ const router = createBrowserRouter([
         element: <SearchPage />,
       },
       {
-        path: '/package/:name',
+        path: '/packages/:name',
         element: <DetailsPage />
       }
     ],

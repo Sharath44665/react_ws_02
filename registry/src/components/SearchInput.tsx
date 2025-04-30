@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Form, useNavigate } from "react-router-dom";
 
 const SearchInput = () => {
     const [term, setTerm] = useState('')
@@ -14,6 +14,13 @@ const SearchInput = () => {
         <input value={term} onChange={e => setTerm(e.target.value)} />
     </form>
     </>
+
+    // alternative way to submit a form like above code
+    // return <>
+    //     <Form action="/search">
+    //         <input name="term" />
+    //     </Form>
+    // </>
 }
 
 export default SearchInput;

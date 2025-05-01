@@ -5,46 +5,31 @@ import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Root from './pages/Root'
 import HomePage from './pages/HomePage'
-import SearchPage from './pages/SearchPage'
+import SearchPage from './pages/search/SearchPage'
 import DetailsPage from './pages/DetailsPage'
+import { searchLoader } from './pages/search/searchLoader'
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Root />,
     children: [
       {
         index: true,
-        element: <HomePage />
+        element: <HomePage />,
       },
       {
-        path: '/search',
+        path: "/search",
         element: <SearchPage />,
-        loader: async ({ request }) => {
-          // console.log(request)
-          const { searchParams } = new URL(request.url)
-          const term = searchParams.get('term')
-
-          if (!term) {
-            throw new Error('search term must be provided')
-          }
-          // console.log(term)
-          const res = await fetch(
-            `https://registry.npmjs.org/-/v1/search?text=${term}`
-          )
-
-          const data = await res.json()
-          return data.objects
-        },
+        loader: searchLoader,
       },
       {
-        path: '/packages/:name',
-        element: <DetailsPage />
-      }
+        path: "/packages/:name",
+        element: <DetailsPage />,
+      },
     ],
-
-  }
-])
+  },
+]);
 function App() {
 
   return (
